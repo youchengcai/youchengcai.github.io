@@ -1,7 +1,82 @@
-<p>Hello 大家好</p>
-<p>我是蔡有城</p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蔡有城 (Youcheng Cai) - 个人主页</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fcfcfc;
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eaeaea;
+            margin-bottom: 30px;
+        }
+        h1 { color: #2c3e50; }
+        h2 {
+            color: #34495e;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .intro { font-size: 1.1em; color: #555; }
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 10px; }
+        a { color: #3498db; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .highlight { font-weight: bold; color: #2980b9; }
+    </style>
+</head>
+<body>
 
-<ul>
-  <li> <a href="https://github.com/youchengcai">Github Homepage</a> </li>
-</ul>
+    <header>
+        <h1>蔡有城 (Youcheng Cai)</h1>
+        <p class="intro">Hello 大家好！我是蔡有城。</p>
+        <p class="intro">很高兴你来到这里，你可以在以下的网站找到我：</p>
+        <p>
+            <a href="https://github.com/youchengcai" target="_blank">Github Homepage</a>
+        </p>
+    </header>
+
+    <section id="about">
+        <h2>个人简介</h2>
+        [cite_start]<p>蔡有城，男，现为中国科学技术大学数学科学学院博士后 [cite: 1, 19][cite_start]。主要研究领域为三维视觉，神经渲染，三维生成 [cite: 1][cite_start]。近年来，在SIGRAPH/CVPR/TVCG等一区国际期刊及CCF-A类会议上发表论文多篇 [cite: 1]。</p>
+    </section>
+
+    <section id="education">
+        <h2>教育与工作经历</h2>
+        <ul>
+            [cite_start]<li><span class="highlight">2023.9 - 至今</span>：中国科学技术大学，数学科学学院，博士后 [cite: 1, 19]</li>
+            [cite_start]<li><span class="highlight">2018.9 - 2023.6</span>：合肥工业大学，计算机科学与技术，博士 [cite: 1, 19]</li>
+            [cite_start]<li><span class="highlight">2014.9 - 2018.6</span>：合肥工业大学，计算机科学与技术，学士 [cite: 19]</li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>发表论文</h2>
+        <ul>
+            <li>Jincheng Hu, Yuxiao Wu, Youcheng Cai*, and Ligang Liu. [cite_start]CraftMesh: High-Fidelity Generative Mesh Manipulation via Poisson Seamless Fusion, CVPR2026录用. [cite: 2]</li>
+            <li>Yifan Mo, Youcheng Cai*, and Ligang Liu. [cite_start]Plug-and-Play PDE Optimization for 3D Gaussian Splatting: Toward High-Quality Rendering and Reconstruction, CVPR2026录用. [cite: 3]</li>
+            <li>Runze Wang, Yuxuan Song, Youcheng Cai*, and Ligang Liu. [cite_start]STAC: Plug-and-Play Spatio-Temporal Aware Cache Compression for Streaming 3D Reconstruction, CVPR2026录用. [cite: 4, 5]</li>
+            <li>Junyan Qi, Youcheng Cai∗, Ligang Liu. DragMV: Interactive drag-style manipulation on multi-view images. [cite_start]Computers & Graphics (2025): 104344. [cite: 6]</li>
+            <li>Huangsheng Du, Youcheng Cai∗, Yutian Zhu, Peifeng Li, Ligang Liu. Importance Sampling Guided Neural Radiosity. [cite_start]Computers & Graphics (2025): 104472. [cite: 6, 7]</li>
+            <li>Youcheng Cai, Runshi Li, and Ligang Liu*. "Mv2mv: Multi-view image translation via view-consistent diffusion models." [cite_start]ACM Transactions on Graphics (TOG) 43.6 (2024): 1-12. [cite: 8]</li>
+            <li>Youcheng Cai, Lin Li, Dong Wang, Xinjie Li, Xiaoping Liu. HTMatch: An efficient hybrid transformer based graph neural network for local feature matching. [cite_start]Signal Processing 204 (2023): 108859. [cite: 9, 10, 11]</li>
+            <li>Youcheng Cai, Lin Li, Dong Wang, Xiaoping Liu. MFNet: Multi-level fusion aware feature pyramid based multi-view stereo network for 3D reconstruction. [cite_start]Applied Intelligence 53.4 (2023): 4289-4301. [cite: 12]</li>
+            <li>Fan Gao, Yibo Zhao, Youcheng Cai, Ligang Liu. Hash-NURF: Efficient Nested Transparent Object Reconstruction Using Multi-Resolution Hash Encoding. [cite_start]The Visual Computer 42.4 (2023): 1432-2315. [cite: 13, 14]</li>
+            <li>Dong Wang, Youcheng Cai, Yiming Tang, Wenjun Xie, Xiaoping Liu. MLENet: Multi-level efficient network based on single-scale feature extraction for human keypoint estimation. [cite_start]Expert Systems with Applications (2025): 130092. [cite: 15, 16]</li>
+            <li>Ping Lu, Youcheng Cai, Jiale Yang, Dong Wang, Tingting Wu. Uanet: uncertainty-aware cost volume aggregation-based multi-view stereo for 3D reconstruction. [cite_start]The Visual Computer 41.7 (2025): 4567-4580. [cite: 16, 17]</li>
+            <li>Youcheng Cai, Lin Li, Dong Wang, Xintao Huang, Xiaoping Liu. GlcMatch: global and local constraints for reliable feature matching. [cite_start]The Visual Computer 39.7 (2023): 2555-2570. [cite: 18]</li>
+        </ul>
+    </section>
+
+</body>
+</html>
