@@ -5,109 +5,324 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>蔡有城 (Youcheng Cai) - 个人主页</title>
     <style>
+        /* 经典学术主页风格 (极简主义) */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #222;
             max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fcfcfc;
+            margin: 40px auto;
+            padding: 0 20px;
+            background-color: #ffffff; /* 纯白背景显得更专业 */
         }
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #eaeaea;
-            margin-bottom: 30px;
-        }
-        h1 { color: #2c3e50; }
-        h2 {
-            color: #34495e;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-        .intro { font-size: 1.1em; color: #555; }
-        ul { margin-bottom: 20px; padding-left: 20px; }
-        li { margin-bottom: 12px; }
-        a { color: #3498db; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .highlight { font-weight: bold; color: #2980b9; }
 
-        /* 个人简介区域布局 */
-        .about-container {
+        /* 顶部信息布局 */
+        .header-container {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            margin-top: 15px;
+            margin-bottom: 40px;
         }
-        /* 头像样式 */
-        .avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            flex-shrink: 0;
-        }
-        .about-text {
+        .header-info {
             flex: 1;
+        }
+        .header-info h1 {
+            font-size: 2.2em;
+            color: #111;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .header-info h3 {
+            font-size: 1.1em;
+            font-weight: normal;
+            margin: 5px 0;
+            color: #444;
+        }
+        
+        /* 链接统一使用经典学术蓝 */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 头像样式：圆形 */
+        .avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-right: 40px;
+            object-fit: cover;
+        }
+
+        /* 标题和分界线 */
+        h2 {
+            font-size: 1.4em;
+            color: #111;
+            border-bottom: 1.5px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* 列表通用样式 */
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        
+        /* 论文列表特殊样式 */
+        .pub-list {
+            padding-left: 0;
+        }
+        .pub-list li {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+            list-style: none;
+        }
+        .pub-thumbnail {
+            width: 240px;
+            height: 160px;
+            min-width: 120px;
+            border-radius: 4px;
+            object-fit: contain;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .pub-content {
+            flex: 1;
+        }
+        .pub-title {
+            font-size: 1em;
+            font-weight: 600;
+            color: #111;
+            margin: 0 0 8px 0;
+        }
+        .pub-authors {
+            font-size: 0.9em;
+            color: #555;
+            margin: 0 0 5px 0;
+        }
+        .pub-journal {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0 0 10px 0;
+            font-style: italic;
+        }
+        .author-highlight {
+            font-weight: bold;
+            color: #111;
+        }
+        .paper-links {
+            font-size: 0.85em;
+            white-space: normal;
+        }
+        .paper-links a {
+            color: #0066cc;
         }
 
         /* 移动端适配 */
-        @media (max-width: 600px) {
-            .about-container {
-                flex-direction: column;
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column-reverse;
                 text-align: center;
+            }
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 150px;
+                height: 150px;
+            }
+            .pub-list li {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .pub-thumbnail {
+                width: 100%;
+                height: 200px;
+            }
+            .paper-links {
+                display: block;
+                margin-top: 5px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>蔡有城 (Youcheng Cai)</h1>
-        <p class="intro">Hello 大家好！我是蔡有城。</p>
-    </header>
-
-    <section id="about">
-        <h2>个人简介</h2>
-        <div class="about-container">
-            <img src="avatar.png" alt="蔡有城头像" class="avatar">
-            <div class="about-text">
-                <p>蔡有城，男，现为中国科学技术大学数学科学学院博士后。主要研究领域为三维视觉，神经渲染，三维生成。近年来，在SIGRAPH/CVPR/TVCG等一区国际期刊及CCF-A类会议上发表论文多篇。</p>
-            </div>
+    <div class="header-container">
+        <img src="avatar.png" alt="蔡有城头像" class="avatar">
+        <div class="header-info">
+            <h1>蔡有城 (Youcheng Cai)</h1>
+            <h3>博士后 (Postdoctoral Researcher)</h3>
+            <h3><a href="http://gcl.ustc.edu.cn/" target="_blank">安徽省图形计算与感知交互重点实验室 (Graphics&Geometric Computing Laboratory)</a></h3>
+            <h3><a href="http://math.ustc.edu.cn/" target="_blank">数学科学学院 (School of Mathematical Sciences)</a></h3>
+            <h3><a href="https://www.ustc.edu.cn/" target="_blank">中国科学技术大学 (University of Science and Technology of China)</a></h3>
+            <p style="margin-top: 15px;"><strong>Email:</strong> caiyoucheng@ustc.edu.cn</p>
         </div>
+    </div>
+
+    <section id="biography">
+        <h2>个人简介 (Biography)</h2>
+        <p>蔡有城，男，现为中国科学技术大学数学科学学院博士后。主要研究领域为三维视觉、神经渲染、三维生成。近年来，在 SIGGRAPH、CVPR、TVCG 等一区国际期刊及 CCF-A 类会议上发表论文多篇。</p>
     </section>
 
     <section id="education">
-        <h2>教育与工作经历</h2>
+        <h2>教育与工作经历 (Education & Work Experience)</h2>
         <ul>
-            <li><span class="highlight">2023.9 - 至今</span>：中国科学技术大学，数学科学学院，博士后</li>
-            <li><span class="highlight">2018.9 - 2023.6</span>：合肥工业大学，计算机科学与技术，博士</li>
-            <li><span class="highlight">2014.9 - 2018.6</span>：合肥工业大学，信息与计算科学，学士</li>
+            <li><strong>2023.9 - 至今</strong>：中国科学技术大学，数学科学学院，博士后</li>
+            <li><strong>2018.9 - 2023.6</strong>：合肥工业大学，计算机科学与技术，博士</li>
+            <li><strong>2014.9 - 2018.6</strong>：合肥工业大学，信息与计算科学，学士</li>
         </ul>
     </section>
 
     <section id="publications">
-        <h2>发表论文</h2>
-        <ul>
-            <li><strong>Youcheng Cai</strong>, Fan gao, Yibo Zhao, Li Li* and Ligang Liu . AHC-NeRF: Autonomous, High-Quality Neural Reconstruction of Two-Layer Complex Nested Transparent Objects, IEEE Transactions on Visualization and Computer Graphics, 2026.</li>
-            <li>Jincheng Hu, Yuxiao Wu, <strong>Youcheng Cai*</strong>, and Ligang Liu. CraftMesh: High-Fidelity Generative Mesh Manipulation via Poisson Seamless Fusion, IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
-            <li>Yifan Mo, <strong>Youcheng Cai*</strong>, and Ligang Liu. Plug-and-Play PDE Optimization for 3D Gaussian Splatting: Toward High-Quality Rendering and Reconstruction, IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
-            <li>Runze Wang, Yuxuan Song, <strong>Youcheng Cai*</strong>, and Ligang Liu. STAC: Plug-and-Play Spatio-Temporal Aware Cache Compression for Streaming 3D Reconstruction, IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
-            <li>Yikai Huang, Renmin Han, Yuxuan Wang, <strong>Youcheng Cai</strong> and Ligang Liu*. Spatial-SAM: Spatially Consistent 3D Electron Microscopy Segmentation with SDF Memory and Semi-Supervised Learning, IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</li>
-            <li>Fan Gao, Yibo Zhao, <strong>Youcheng Cai*</strong>, Ligang Liu. Hash-NURF: Efficient Nested Transparent Object Reconstruction Using Multi-Resolution Hash Encoding. The Visual Computer 42(4) (2026): 1432-2315.</li>
-            <li>Junyan Qi, <strong>Youcheng Cai*</strong>, Ligang Liu. DragMV: Interactive drag-style manipulation on multi-view images. Computers & Graphics (2025): 104344.</li>
-            <li>Huangsheng Du, <strong>Youcheng Cai*</strong>, Yutian Zhu, Peifeng Li, Ligang Liu. Importance Sampling Guided Neural Radiosity. Computers & Graphics (2025): 104472.</li>
-            <li>Dong Wang, <strong>Youcheng Cai</strong>, Yiming Tang, Wenjun Xie*, Xiaoping Liu. MLENet: Multi-level efficient network based on single-scale feature extraction for human keypoint estimation. Expert Systems with Applications (2025): 130092.</li>
-            <li>Ping Lu, <strong>Youcheng Cai*</strong>, Jiale Yang, Dong Wang, Tingting Wu. Uanet: uncertainty-aware cost volume aggregation-based multi-view stereo for 3D reconstruction. The Visual Computer 41(7) (2025): 4567-4580.</li>
-            
-            <li><strong>Youcheng Cai</strong>, Runshi Li, and Ligang Liu*. "Mv2mv: Multi-view image translation via view-consistent diffusion models." ACM Transactions on Graphics (TOG) 43.6 (2024): 1-12.</li>
-            
-            <li><strong>Youcheng Cai</strong>, Lin Li, Dong Wang, Xinjie Li, Xiaoping Liu. HTMatch: An efficient hybrid transformer based graph neural network for local feature matching. Signal Processing 204 (2023): 108859.</li>
-            <li><strong>Youcheng Cai</strong>, Lin Li, Dong Wang, Xiaoping Liu. MFNet: Multi-level fusion aware feature pyramid based multi-view stereo network for 3D reconstruction. Applied Intelligence 53(4) (2023): 4289-4301.</li>
-            <li><strong>Youcheng Cai</strong>, Lin Li, Dong Wang, Xintao Huang, Xiaoping Liu. GlcMatch: global and local constraints for reliable feature matching. The Visual Computer 39(7) (2023): 2555-2570.</li>
+        <h2>发表论文 (Publications)</h2>
+        <ul class="pub-list">
+
+            <li>
+                <img src="paper15.jpg" alt="Mobile3DGS3" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">Mobile3DGS<sup>3</sup>: Accelerate Mobile 3DGS Rendering via Gradient-Aware Super-Sampling and Frame Interpolation</h3>
+                    <p class="pub-authors">Fan Gao, Yibo Zhao, <span class="author-highlight">Youcheng Cai*</span>, and Ligang Liu</p>
+                    <p class="pub-journal">Conditionally Accepted bySIGGRAPH 2026.</p>
+                    <span class="paper-links">[<a href="#">Coming Soon</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper14.jpg" alt="CraftMesh" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">CraftMesh: High-Fidelity Generative Mesh Manipulation via Poisson Seamless Fusion</h3>
+                    <p class="pub-authors">Jincheng Hu, Yuxiao Wu, <span class="author-highlight">Youcheng Cai*</span>, and Ligang Liu</p>
+                    <p class="pub-journal">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</p>
+                    <span class="paper-links">[<a href="https://arxiv.org/pdf/2509.13688?">ArXiv</a>] [<a href="https://jameshu.org/CraftMesh/">Project</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper13.jpg" alt="Plug-and-Play PDE" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">Plug-and-Play PDE Optimization for 3D Gaussian Splatting: Toward High-Quality Rendering and Reconstruction</h3>
+                    <p class="pub-authors">Yifan Mo, <span class="author-highlight">Youcheng Cai*</span>, and Ligang Liu</p>
+                    <p class="pub-journal">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</p>
+                    <span class="paper-links">[<a href="https://arxiv.org/pdf/2509.13938">ArXiv</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper12.gif" alt="STAC" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">STAC: Plug-and-Play Spatio-Temporal Aware Cache Compression for Streaming 3D Reconstruction</h3>
+                    <p class="pub-authors">Runze Wang, Yuxuan Song, <span class="author-highlight">Youcheng Cai*</span>, and Ligang Liu</p>
+                    <p class="pub-journal">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</p>
+                    <span class="paper-links">[<a href="https://arxiv.org/pdf/2603.20284">ArXiv</a>] [<a href="https://stac-3r.github.io/">Project</a>] [<a href="https://github.com/Rainzor/STAC">Code</a>]</span>
+                </div>
+            </li>
+            <!-- <li>
+                <img src="paper11.jpg" alt="Spatial-SAM" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">Spatial-SAM: Spatially Consistent 3D Electron Microscopy Segmentation with SDF Memory and Semi-Supervised Learning</h3>
+                    <p class="pub-authors">Yikai Huang, Renmin Han, Yuxuan Wang, <span class="author-highlight">Youcheng Cai</span>, and Ligang Liu*</p>
+                    <p class="pub-journal">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</p>
+                    <span class="paper-links">[<a href="#">PDF</a>] [<a href="#">Code</a>]</span>
+                </div>
+            </li> -->
+            <li>
+                <img src="paper10.jpg" alt="AHC-NeRF" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">AHC-NeRF: Autonomous, High-Quality Neural Reconstruction of Two-Layer Complex Nested Transparent Objects</h3>
+                    <p class="pub-authors"><span class="author-highlight">Youcheng Cai</span>, Fan Gao, Yibo Zhao, Li Li*, and Ligang Liu</p>
+                    <p class="pub-journal">IEEE Transactions on Visualization and Computer Graphics (TVCG), 2026</p>
+                    <span class="paper-links">[<a href="https://ieeexplore.ieee.org/abstract/document/11434572/">DOI</a>]</span>
+                </div>
+            </li>
+
+            <li>
+                <img src="paper9.jpg" alt="Hash-NURF" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">Hash-NURF: Efficient Nested Transparent Object Reconstruction Using Multi-Resolution Hash Encoding</h3>
+                    <p class="pub-authors">Fan Gao, Yibo Zhao, <span class="author-highlight">Youcheng Cai*</span>, and Ligang Liu</p>
+                    <p class="pub-journal">The Visual Computer, 42(4): 1432-2315, 2026</p>
+                    <span class="paper-links">[<a href="https://link.springer.com/article/10.1007/s00371-026-04394-1">DOI</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper8.jpg" alt="DragMV" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">DragMV: Interactive Drag-Style Manipulation on Multi-View Images</h3>
+                    <p class="pub-authors">Junyan Qi, <span class="author-highlight">Youcheng Cai*</span>, and Ligang Liu</p>
+                    <p class="pub-journal">Computers & Graphics, 104344, 2025</p>
+                    <span class="paper-links">[<a href="https://www.sciencedirect.com/science/article/pii/S0097849325001852">DOI</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper7.jpg" alt="Importance Sampling" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">Importance Sampling Guided Neural Radiosity</h3>
+                    <p class="pub-authors">Huangsheng Du, <span class="author-highlight">Youcheng Cai*</span>, Yutian Zhu, Peifeng Li, and Ligang Liu</p>
+                    <p class="pub-journal">Computers & Graphics, 104472, 2025</p>
+                    <span class="paper-links">[<a href="https://www.sciencedirect.com/science/article/pii/S0097849325003139">DOI</a>]</span>
+                </div>
+            </li>
+            <!-- <li>
+                <img src="paper6.jpg" alt="MLENet" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">MLENet: Multi-Level Efficient Network Based on Single-Scale Feature Extraction for Human Keypoint Estimation</h3>
+                    <p class="pub-authors">Dong Wang, <span class="author-highlight">Youcheng Cai</span>, Yiming Tang, Wenjun Xie*, and Xiaoping Liu</p>
+                    <p class="pub-journal">Expert Systems with Applications, 130092, 2025</p>
+                    <span class="paper-links">[<a href="#">PDF</a>]</span>
+                </div>
+            </li> -->
+            <li>
+                <img src="paper5.jpg" alt="Uanet" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">UANet: Uncertainty-Aware Cost Volume Aggregation-Based Multi-View Stereo for 3D Reconstruction</h3>
+                    <p class="pub-authors">Ping Lu, <span class="author-highlight">Youcheng Cai*</span>, Jiale Yang, Dong Wang, and Tingting Wu</p>
+                    <p class="pub-journal">The Visual Computer, 41(7): 4567-4580, 2025</p>
+                    <span class="paper-links">[<a href="https://link.springer.com/article/10.1007/s00371-024-03678-8">DOI</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper4.jpg" alt="MV2MV" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">MV2MV: Multi-view Image Translation via View-Consistent Diffusion Models</h3>
+                    <p class="pub-authors"><span class="author-highlight">Youcheng Cai</span>, Runshi Li, and Ligang Liu*</p>
+                    <p class="pub-journal">ACM Transactions on Graphics (Proc. SIGGRAPH Asia), 43(6): 1-12, 2024</p>
+                    <span class="paper-links">[<a href="https://youchengcai.github.io/MV2MV/">Project</a>] [<a href="https://dl.acm.org/doi/abs/10.1145/3687977">DOI</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper3.jpg" alt="HTMatch" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">HTMatch: An Efficient Hybrid Transformer Based Graph Neural Network for Local Feature Matching</h3>
+                    <p class="pub-authors"><span class="author-highlight">Youcheng Cai</span>, Lin Li, Dong Wang, Xinjie Li, and Xiaoping Liu</p>
+                    <p class="pub-journal">Signal Processing, 204: 108859, 2023</p>
+                    <span class="paper-links">[<a href="https://www.sciencedirect.com/science/article/pii/S016516842200398X">DOI</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper2.jpg" alt="MFNet" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">MFNet: Multi-Level Fusion Aware Feature Pyramid Based Multi-View Stereo Network for 3D Reconstruction</h3>
+                    <p class="pub-authors"><span class="author-highlight">Youcheng Cai</span>, Lin Li, Dong Wang, and Xiaoping Liu</p>
+                    <p class="pub-journal">Applied Intelligence, 53(4): 4289-4301, 2023</p>
+                    <span class="paper-links">[<a href="https://link.springer.com/article/10.1007/s10489-022-03754-3">DOI</a>]</span>
+                </div>
+            </li>
+            <li>
+                <img src="paper1.jpg" alt="GlcMatch" class="pub-thumbnail">
+                <div class="pub-content">
+                    <h3 class="pub-title">GlcMatch: Global and Local Constraints for Reliable Feature Matching</h3>
+                    <p class="pub-authors"><span class="author-highlight">Youcheng Cai</span>, Lin Li, Dong Wang, Xintao Huang, and Xiaoping Liu</p>
+                    <p class="pub-journal">The Visual Computer, 39(7): 2555-2570, 2023</p>
+                    <span class="paper-links">[<a href="https://link.springer.com/article/10.1007/s00371-022-02478-2">DOI</a>]</span>
+                </div>
+            </li>
         </ul>
     </section>
 
